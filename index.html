@@ -21,8 +21,9 @@
     <br>
 
     <div class="container">
-        <h3>Calculate Tax on Your Salary <span><img src="./image/logo.png" class="w-25 float-end" alt=""></span>
+        <h3>Calculate Tax on Your Salary <span><img src="./image/logo.png" class="w-25 float-end" alt=""><b></b></span>
         </h3>
+
         <h4>Tax Calculator Cache Cloud 2024-2025</h4>
         <p>This is the latest tax calculator as per the 2024-2025 budget presented by the government of Pakistan.</p>
     </div>
@@ -60,10 +61,10 @@
                     <source src="movie.ogg" type="video/ogg">
                   Your browser does not support the video tag.
                   </video>
-
             </div>
         </div>
     </div>
+
     <script>
         function calculateTax(annualIncome) {
             let tax = 0;
@@ -85,6 +86,16 @@
 
         function myFunction() {
             const myInput = parseFloat(document.getElementById('myinput').value);
+
+            if (isNaN(myInput)) {
+                document.getElementById('firstTd').innerHTML = '';
+                document.getElementById('monthlyTaxTd').innerHTML = '';
+                document.getElementById('salaryAfterTaxTd').innerHTML = '';
+                document.getElementById('yearlyTaxTd').innerHTML = '';
+                document.getElementById('yearlyIncomeAfterTaxTd').innerHTML = '';
+                return;
+            }
+
             const annualIncome = myInput * 12;
             const annualTax = calculateTax(annualIncome);
             const monthlyTax = annualTax / 12;
